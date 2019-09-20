@@ -41,18 +41,14 @@ var detectNetwork = function(cardNumber) {
     if ( cardLength >= 12 && cardLength <= 19){
       return `Maestro`;
     }
-  } else if ( (firstFour >= "6282" && firstFour <= "6288") || (firstThree >= '624' && firstThree <= '626') || ( firstSix >= "622126" && firstSix <= "622925")){
-    if(cardLength === 16 || cardLength === 18 || cardLength === 19){
-      return `China Union`;
-    }
+  } else if ( ((firstFour >= "6282" && firstFour <= "6288") || (firstThree >= '624' && firstThree <= '626') || ( firstSix >= "622126" && firstSix <= "622925")) && ((cardLength === 16 || cardLength === 17 || cardLength === 18 || cardLength === 19))){
+    return `China UnionPay`;
   } else if ( (firstFour === "4903" || firstFour === "4905" || firstFour === "4911" || firstFour === "4936") && (cardLength === 16 || cardLength === 18 || cardLength === 19)){
     return `Switch`;
   } else if ( firstOne === "4" && (cardLength === 13 || cardLength === 16 || cardLength === 19)){
     return `Visa`;
-  } else if( (firstSix === "564182" || firstSix === "633110" || firstFour === "6333" || firstFour === "6759")){
-    if (cardLength === 16 || cardLength === 18 || cardLength === 19){
-      return `Switch`;
-    }
+  } else if( (firstSix === "564182" || firstSix === "633110" || firstFour === "6333" || firstFour === "6759") && ((cardLength === 16 || cardLength === 18 || cardLength === 19))){
+    return `Switch`;
   }
 
 };
